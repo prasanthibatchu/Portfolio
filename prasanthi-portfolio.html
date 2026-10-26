@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prasanthi Batchu – Front-end & Full-stack Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f6;--surface:#ffffff;--ink:#16213a;--muted:#55627c;--line:#cdd6e3;--accent:#2849d6;--accent-ink:#ffffff;--live:#0d8f5f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10172a;--surface:#18213a;--ink:#e8edf8;--muted:#a3afc8;--line:#2b3757;--accent:#8aa2ff;--accent-ink:#10172a;--live:#4fd39a}}
+:root[data-theme="dark"]{--bg:#10172a;--surface:#18213a;--ink:#e8edf8;--muted:#a3afc8;--line:#2b3757;--accent:#8aa2ff;--accent-ink:#10172a;--live:#4fd39a}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 "Source Serif 4",Georgia,serif}
+h1,h2,h3,.sans{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+nav{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:1.25rem 0;font-family:"Bricolage Grotesque",sans-serif;font-weight:500}
+nav .links{display:flex;gap:1.25rem;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none}
+nav a:hover{color:var(--accent)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:3.5rem 0 4.5rem}
+h1{font-size:clamp(2.6rem,6.5vw,4.6rem);line-height:1.02;margin:0 0 1.25rem;font-weight:700;letter-spacing:-.025em}
+.lede{font-size:1.2rem;max-width:34rem;color:var(--muted);margin:0 0 1.75rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1.25rem;border-radius:.5rem;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.feed{background:var(--surface);border:1px solid var(--line);border-radius:.75rem;overflow:hidden}
+.feed-head{display:flex;align-items:center;gap:.6rem;padding:.8rem 1rem;border-bottom:1px solid var(--line);font-family:"Bricolage Grotesque",sans-serif;font-weight:500;font-size:.95rem}
+.dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--live);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.3}}
+.feed ul{list-style:none;margin:0;padding:0;min-height:15.5rem}
+.feed li{display:flex;justify-content:space-between;gap:1rem;padding:.75rem 1rem;border-bottom:1px solid var(--line);font-size:.95rem}
+.feed li:last-child{border-bottom:0}
+.feed li span:last-child{color:var(--muted);font-size:.85rem;white-space:nowrap}
+.feed li.new{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.feed-foot{padding:.7rem 1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.8rem,4vw,2.4rem);margin:0 0 1.75rem;letter-spacing:-.015em;line-height:1.1}
+h3{margin:0 0 .35rem;font-size:1.25rem}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about p{margin:0 0 1rem;max-width:34rem}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-content:start}
+.fact{border-left:3px solid var(--accent);padding-left:1rem}
+.fact b{display:block;font:700 1.9rem/1.1 "Bricolage Grotesque",sans-serif}
+.fact span{color:var(--muted);font-size:.95rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.5rem 2rem}
+.skills h3{font-size:1.05rem}
+.skills p{margin:0;color:var(--muted)}
+.tl{border-left:2px solid var(--line);margin-left:.4rem;padding-left:1.75rem}
+.job{position:relative;margin-bottom:2.25rem}
+.job::before{content:"";position:absolute;left:-2.2rem;top:.5rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--accent)}
+.job .when{color:var(--muted);font-size:.95rem;margin:0 0 .6rem}
+.job ul{margin:0;padding-left:1.2rem;max-width:44rem}
+.co{margin:2.5rem 0 1rem;font-size:1.4rem}
+.co:first-of-type{margin-top:0}
+.proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1.25rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:1.4rem}
+.card.wide{grid-column:1/-1}
+.card p{margin:.25rem 0 .9rem;color:var(--muted)}
+.card ul{margin:0 0 1rem;padding-left:1.15rem;font-size:.98rem}
+.card li{margin-bottom:.3rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;list-style:none}
+.tags li{margin:0;font:500 .82rem "Bricolage Grotesque",sans-serif;border:1px solid var(--line);border-radius:2rem;padding:.15rem .7rem}
+.contact p{max-width:34rem;margin:0 0 1.25rem}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+@media (max-width:48rem){.hero,.about{grid-template-columns:1fr;gap:2rem}.hero{padding-top:2rem}}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="Main"><a href="#top" class="sans" style="font-weight:700">Prasanthi Batchu</a>
+<div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></nav>
+
+<header class="hero" id="top">
+<div>
+<h1>I build interfaces that stay current while people use them.</h1>
+<p class="lede">Software engineer with 6.5+ years in front-end and full-stack web development. I work with React, Redux, TypeScript and Node.js, from live gaming tables to HR suites.</p>
+<div class="btns"><a class="btn primary" href="#projects">See my projects</a><a class="btn ghost" href="mailto:batchu.prasanthi916@gmail.com">Email me</a></div>
+</div>
+<div class="feed" aria-label="Sample of live updates from projects I have built">
+<div class="feed-head"><span class="dot" aria-hidden="true"></span>Live updates, no refresh</div>
+<ul id="feed" aria-live="off"></ul>
+<div class="feed-foot">Sample events, modelled on the SignalR features I have built.</div>
+</div>
+</header>
+
+<section id="about">
+<h2>About</h2>
+<div class="about">
+<div>
+<p>I turn requirements into working software, then see it through testing and release. My front-end work is responsive and fast, and I connect it to REST APIs and Node.js and Express services.</p>
+<p>I have shipped real-time and desktop applications with SignalR and Electron JS, and features that need care: role-based access, subscription management and secure authentication.</p>
+<p>I work closely with QA, backend, hardware, HR and product teams, and I review code, test and debug as part of every project.</p>
+</div>
+<div class="facts">
+<div class="fact"><b>6.5+</b><span>years of experience</span></div>
+<div class="fact"><b>6</b><span>projects delivered</span></div>
+<div class="fact"><b>3</b><span>organizations</span></div>
+<div class="fact"><b>5</b><span>modules in one ERP suite</span></div>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills">
+<div><h3>Front-end</h3><p>React.js, Redux, TypeScript, JavaScript, HTML, CSS, Bootstrap, Vite</p></div>
+<div><h3>Back-end</h3><p>Node.js, Express, REST API integration, third-party API integration</p></div>
+<div><h3>Desktop and real-time</h3><p>Electron JS, SignalR</p></div>
+<div><h3>Data and tools</h3><p>SQL, Git, GitHub</p></div>
+<div><h3>Practices</h3><p>Code reviews, testing, debugging, cross-browser testing</p></div>
+</div>
+</section>
+
+<section id="experience">
+<h2>Experience</h2>
+<div class="tl">
+<div class="job"><h3>Software Engineer, YsecIT</h3><p class="when">May 2024 to present</p>
+<ul><li>Build React.js, Redux and Electron JS web and desktop applications for gaming and HR, with real-time features on SignalR.</li><li>Delivered the Live Gaming Table, the PT Display Application and an ERP suite of five modules.</li><li>Work with QA, backend, hardware and HR teams; take part in code reviews, testing and debugging.</li></ul></div>
+<div class="job"><h3>Full-Stack Developer, arawinz soft solutions</h3><p class="when">May 2022 to April 2024</p>
+<ul><li>Built full-stack applications in React JS, including a property platform with subscription plans and a face recognition system.</li><li>Agreed API contracts with backend developers and joined code reviews.</li></ul></div>
+<div class="job"><h3>Front End Developer, Shellpro Technologies LLP</h3><p class="when">February 2020 to March 2022</p>
+<ul><li>Developed responsive front-end applications in React JS, JavaScript and CSS, including a file-based chat system.</li><li>Ran cross-browser testing and turned product requirements into UI screens.</li></ul></div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<h3 class="co">YsecIT</h3>
+<div class="proj">
+<article class="card"><h3>Live Gaming Table</h3><p>A real-time casino gaming platform for slots, live gaming and user signature modules.</p>
+<ul><li>Dashboards, data tables, customer management and transaction tracking.</li><li>SignalR updates show live game and table status instantly.</li><li>Optimized rendering for high-frequency updates.</li><li>Signature and verification modules for secure transactions.</li></ul>
+<ul class="tags"><li>React.js</li><li>Bootstrap</li><li>SignalR</li></ul></article>
+<article class="card"><h3>PT Display Application</h3><p>A desktop display system with live updates, secure login and points transfer.</p>
+<ul><li>Login by card, MAC validation and PIN.</li><li>Points transfer, order placement and live transaction display.</li><li>Handled card failures and invalid PIN entries.</li><li>Worked with hardware and backend teams on the full transaction flow.</li></ul>
+<ul class="tags"><li>Electron JS</li><li>React</li><li>TypeScript</li><li>Vite</li><li>SignalR</li></ul></article>
+<article class="card wide"><h3>ERP suite</h3><p>HRMS, Employee Self-Service, Recruitment, Teams and Careers modules.</p>
+<ul><li>HRMS: payroll and attendance data entry with validation, and automated HR workflows.</li><li>ESS portal: profiles, attendance, leaves and reports, with Redux keeping employee data consistent.</li><li>Recruitment: job openings, candidate screening, shortlisting, offer letters and role-based access.</li><li>Teams: team creation, employee selection, search and filters.</li><li>Careers portal: job listings, resume upload, application tracking, responsive on mobile.</li></ul>
+<ul class="tags"><li>React JS</li><li>Redux</li><li>REST APIs</li></ul></article>
+</div>
+<h3 class="co">arawinz soft solutions</h3>
+<div class="proj">
+<article class="card"><h3>BHR Properties</h3><p>A property rental and sale platform with subscription plans for owners, agents and builders.</p>
+<ul><li>Role-based features and subscription management.</li><li>Listing, search and filter tools for property inventory.</li><li>Optimized database structures for storage and retrieval.</li></ul>
+<ul class="tags"><li>React JS</li><li>SQL</li></ul></article>
+<article class="card"><h3>ARA Face Finder</h3><p>A face recognition system for authentication and attendance tracking.</p>
+<ul><li>User roles and attendance reports.</li><li>Admin dashboards for attendance trends and authentication activity.</li><li>Face recognition API connected to the front end in real time.</li></ul>
+<ul class="tags"><li>React JS</li><li>API integration</li></ul></article>
+</div>
+<h3 class="co">Shellpro Technologies LLP</h3>
+<div class="proj">
+<article class="card wide"><h3>Token Word Net</h3><p>A file upload and question-based chat system for local drives, Google Drive and web URLs.</p>
+<ul><li>Upload components for multiple sources, with handling for unsupported files and failed uploads.</li><li>Chat interface that shows parsed answers and keeps conversation context.</li><li>Optimized chat history rendering for long threads.</li></ul>
+<ul class="tags"><li>React JS</li><li>JavaScript</li></ul></article>
+</div>
+</section>
+
+<section id="education">
+<h2>Education</h2>
+<h3>Bachelor of Technology, Computer Science and Engineering</h3>
+<p style="margin:0;color:var(--muted)">Shri Vishnu Engineering College for Women, West Godavari</p>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<p>I’m open to front-end and full-stack roles. Email is the quickest way to reach me.</p>
+<div class="btns"><a class="btn primary" href="mailto:batchu.prasanthi916@gmail.com">batchu.prasanthi916@gmail.com</a><a class="btn ghost" href="tel:+919440171067">+91 9440171067</a></div>
+<p style="margin-top:1.25rem;color:var(--muted)">Based in Bengaluru, India.</p>
+</section>
+<footer>© Prasanthi Batchu</footer>
+</div>
+
+<script>
+(function(){
+var events=[["Table 4: seat opened","Gaming"],["Card verified, PIN accepted","Display"],["Points transfer completed","Display"],["Leave request approved","ESS"],["Offer letter sent","Recruitment"],["Slot machine status: idle","Gaming"],["Attendance marked: face matched","Face Finder"],["New listing published","Properties"]];
+var list=document.getElementById("feed"),i=0,max=5;
+function add(initial){
+var e=events[i%events.length];i++;
+var li=document.createElement("li");
+li.innerHTML="<span></span><span></span>";
+li.children[0].textContent=e[0];li.children[1].textContent=e[1];
+if(!initial)li.className="new";
+list.insertBefore(li,list.firstChild);
+while(list.children.length>max)list.removeChild(list.lastChild);
+if(!initial)setTimeout(function(){li.className=""},1200);
+}
+for(var k=0;k<max;k++)add(true);
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)setInterval(function(){add(false)},2400);
+})();
+</script>
+</body>
+</html>
